@@ -3,10 +3,11 @@ import Post from "../models/Post.js";
 
 export const createPost = async (req, res) => {
   try {
+    const { email, query, destination } = req.body;
     const newPost = await Post.create({
-      email: req.body.email,
-      query: req.body.query,
-      destination: req.body.destination
+      email: email,
+      query: query,
+      destination: destination
     });
 
     //respond to the client
